@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <!--беру css из файла-->
+ <link rel="stylesheet" href="styles.css">
+ <!--шрифт-->
+ <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,700|Roboto:300,400,500,700" rel="stylesheet">
+ <!--кодировка-->
+ <meta charset="utf-8">
+ <title> Tilthood </title>
+ <script src="script.js"></script>
+ </head>
+<body>
+    <nav class="navigation">
+        <a href="#" class ="logo" id="logo"><img src="logaaan.png" id="logoImage"></a>
+        <div class="links">
+          <a class="scrollable" href="project.html">Home</a>
+          <a class="scrollable" href="genre.html">Genre</a>
+        </div>
+        <div class="download scrollable">
+          <div class="dropdown">
+          <button class="dropbtn"><img src="burger.svg"></button>
+          <div class="dropdown-content">
+            <a href="#" onclick="selectOption(this)" data-option="title">Title</a>
+            <a href="#" onclick="selectOption(this)" data-option="actor">Actor</a>
+            <a href="#" onclick="selectOption(this)" data-option="TV">TV show</a>
+          </div>
+        </div>
+        <input type="text" id="Name" name="Name" placeholder="Search" autocomplete="off" onkeydown="handleKeyPress(event)">
+        <button type="button" onclick="executeSearch()" id="search"><img src="lupa.png" id="searchImage"></button></div>
+      </nav>
+    <div class="main">
+      <div style="background-color: black;"><a href="secret.html"><img src="lohan.png" style="height: 250px; user-select: none; pointer-events: none;"></a></div>
+      <p id="randomText"></p>
+    <h1 id="curDate" ></h1>
+    <div id="movies" class="results"></div>
+  </div>
+  <br><br><br><br><br><br><br><br>
+<script>
+  date = new Date();
+  year = date.getFullYear();
+  month = date.getMonth() + 1;
+  day = date.getDate();
+  if(month < 10) month = "0" + month;
+  document.getElementById("curDate").innerHTML = "Trending " + year + "." + month + "." + day;
+  function changeText(){
+        var texts = [
+        "\"Cinema is a mirror by which we often see ourselves.\" - Alejandro Gonzalez Inarritu",
+        "\"For me, the cinema is not a slice of life, but a piece of cake.\" - Alfred Hitchcock",
+        "\"May the Force be with you.\" - Star Wars, 1977",
+        "\"Cinema should make you forget you are sitting in a theater.\" - Roman Polanski",
+        "\"It's alive! It's alive!\" - Frankenstein, 1931",
+        "\"Cinema is a matter of what's in the frame and what's out.\" - Martin Scorsese",
+        "\"Relating a person to the whole world: that is the meaning of cinema.\" - Andrei Tarkovsky",
+        "\"Houston, we have a problem.\" - A pollo 13, 1995",
+        "\"Here's Johnny!\" - The Shining, 1980",
+        "\"And you know what they call a Quarter Pounder with Cheese in Paris?\" - Pulp Fiction, 1994",
+        ];
+        var random = document.getElementById("randomText");
+        random.innerHTML = texts[Math.floor(Math.random() * texts.length)];
+      }
+      changeText();
+ </script>
+</body>
+</html>

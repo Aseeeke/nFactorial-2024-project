@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <link rel="stylesheet" href="styles.css">
+ <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,700|Roboto:300,400,500,700" rel="stylesheet">
+ <meta charset="utf-8">
+ <title> Tilthood </title>
+ <script src="script.js"></script>
+ </head>
+<body>
+    <nav class="navigation">
+        <a href="#" class ="logo" id="logo"><img src="logaaan.png" id="logoImage"></a>
+        <div class="links">
+          <a class="scrollable" href="project.html">Home</a>
+          <a class="scrollable" href="genre.html">Genre</a>
+        </div>
+        <div class="download scrollable">
+          <div class="dropdown">
+          <button class="dropbtn"><img src="burger.svg"></button>
+          <div class="dropdown-content">
+            <a href="#" onclick="selectOption(this)" data-option="title">Title</a>
+            <a href="#" onclick="selectOption(this)" data-option="actor">Actor</a>
+            <a href="#" onclick="selectOption(this)" data-option="TV">TV show</a>
+          </div>
+        </div>
+        <input type="text" id="Name" name="Name" placeholder="Search" autocomplete="off" onkeydown="handleKeyPress(event)" value="">
+        <button type="button" onclick="executeSearch()" id="search"><img src="lupa.png" id="searchImage"></button></div>
+      </nav>
+    <div class="main">
+    <div id="searchResults" class="results" style="color: white;"><h1>NO RESULT FOUND</h1></div>
+
+  <script>
+    const searchResults = JSON.parse(localStorage.getItem("searchResults"));
+    const searchResultsContainer = document.getElementById("searchResults");
+    if(searchResults.length > 0) {
+      const firstChild = searchResultsContainer.firstChild;
+      searchResultsContainer.removeChild(firstChild);
+    }
+    searchResults.forEach(movie => {
+      const movieElement = document.createElement("div");
+      movieElement.innerHTML = `<div class="singleMovie">
+          <div class="imageContainer">
+            <img src="https://image.tmdb.org/t/p/w500${movie.poster_path}" onerror="this.src='scenes/noimg.jpg';" alt="${movie.title}" class="moviePoster"><div class="textOver"><h1>${movie.title}<br>${movie.release_date.slice(0, 4)}</h1></div>
+          </div></div>
+      `;
+      searchResultsContainer.appendChild(movieElement);
+    });
+    localStorage.removeItem("searchResults");
+  </script>
+    </div>
+</body>
+</html>

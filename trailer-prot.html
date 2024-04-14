@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <link rel="stylesheet" href="styles.css">
+ <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,700|Roboto:300,400,500,700" rel="stylesheet">
+ <meta charset="utf-8">
+ <title> Tilthood </title>
+ <script src="script.js"></script>
+ </head>
+<body>
+    <nav class="navigation">
+        <a href="#" class ="logo" id="logo"><img src="logaaan.png" id="logoImage"></a>
+        <div class="links">
+          <a class="scrollable" href="project.html">Home</a>
+          <a class="scrollable" href="genre.html">Genre</a>
+        </div>
+        <div class="download scrollable">
+          <div class="dropdown">
+          <button class="dropbtn"><img src="burger.svg"></button>
+          <div class="dropdown-content">
+            <a href="#" onclick="selectOption(this)" data-option="title">Title</a>
+            <a href="#" onclick="selectOption(this)" data-option="actor">Actor</a>
+            <a href="#" onclick="selectOption(this)" data-option="TV">TV show</a>
+          </div>
+        </div>
+        <input type="text" id="Name" name="Name" placeholder="Search" autocomplete="off" onkeydown="handleKeyPress(event)">
+        <button type="button" onclick="executeSearch()" id="search"><img src="lupa.png" id="searchImage"></button></div>
+      </nav>
+    <div class="main">
+       <div id="actorSearchResults" class="results" style="color: white;"><h1>NO RESULT FOUND</h1></div>
+       <div style="background-color: black;">
+    </div>
+
+    </div>
+    <script>
+    const actorSearchResults = JSON.parse(localStorage.getItem("actorSearchResults"));
+      const actorResultsContainer = document.getElementById("actorSearchResults");
+      let html = '';
+      const actor = actorSearchResults[0];
+      let known_for_string = "";
+      for(let i = 0; i < actor.known_for.length; i++){
+        known_for_string += actor.known_for[i].title + ", ";
+      }
+      known_for_string = known_for_string.slice(0, -2);
+      const profilePath = actor.profile_path ? `https://image.tmdb.org/t/p/w500${actor.profile_path}` : 'no-image-available.png';
+      const firstPosterPath = actor.profile_path ? `https://image.tmdb.org/t/p/w500${actor.known_for[0].poster_path}` : 'scenes/noimg.png';
+      const secondPosterPath = actor.profile_path ? `https://image.tmdb.org/t/p/w500${actor.known_for[1].poster_path}` : 'scenes/noimg.png';
+      const thirdPosterPath = actor.profile_path ? `https://image.tmdb.org/t/p/w500${actor.known_for[2].poster_path}` : 'scenes/noimg.png';
+      html+= `<div class="outerPoster"><div class="image actorImage">
+      <img style="opacity:0.6;" class= "image" src="scenes/31.jpg">
+      <div class="actorTextOver"><h1>Rating: ${actor.popularity}%</h1></div>
+      </div></div>`;
+      html += `<div class="outerPoster" style="background-color: #f2f2f2;"">
+          <img onerror="this.src='scenes/10.jpg';" src="${profilePath}" alt="${actor.name}" class="image actorImage">
+          <h1 style="color: black;">${actor.name}</h1>
+        </div>`;
+      html+= `<div class="outerPoster"><div class="image actorImage">
+      <img style="opacity:0.6;" class= "image" src="scenes/33.jpg">
+      </div></div>`;
+      html += `<div class="outerPoster">
+          <img onerror="this.src='scenes/noimg.jpg';" src="${firstPosterPath}" alt="${actor.name}" class="image actorImage">
+          <h2>${actor.known_for[0].title}</h2>
+        </div>`;
+      html += `<div class="outerPoster">
+          <img onerror="this.src='scenes/noimg.jpg';" src="${secondPosterPath}" alt="${actor.name}" class="image">
+          <h2>${actor.known_for[1].title}</h2>
+        </div>`;
+      html += `<div class="outerPoster">
+          <img onerror="this.src='scenes/noimg.jpg';" src="${thirdPosterPath}" alt="${actor.name}" class="image actorImage">
+          <h2>${actor.known_for[2].title}</h2>
+        </div>`;
+      actorResultsContainer.innerHTML = html;
+    localStorage.removeItem("searchResults");
+    </script>
+</body>
+</html>

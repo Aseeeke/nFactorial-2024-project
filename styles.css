@@ -1,0 +1,327 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+    padding: 0;
+    margin: 0;
+    font-weight: normal;
+    background-color: #dedede;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size:cover;
+      }
+.navigation {
+  position: fixed;
+  z-index: 9999;
+  top: 20px;
+  left: 20px;
+  right: 20px;
+  height: 60px;
+  background-color: rgba(0,0,0,0.8);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0 20px;
+  letter-spacing: 0.04em;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: all 0.4s ease;
+}
+.navigation.shrink {
+  transform: translateX(-95%);
+}
+.navigation .logo {
+  margin-right: 32px;
+  display: flex;
+  transition: all 0.4s ease;
+}
+
+.navigation .logo img {
+  height: 80px;
+  width: 250px;
+  margin-top: 10px;
+  margin-right: 20px;
+}
+.navigation.shrink .logo img {
+  height: 30px;
+  width: 20px;
+  margin-top: 0px;
+  margin-left: 1320px;
+}
+
+.navigation .links {
+  display: flex;
+  flex-direction: row;
+  text-decoration: none;
+  text-transform: none;
+}
+.navigation.shrink .links  {
+  display: none;
+}
+
+.navigation .links a {
+  margin: 0 16px;
+  opacity: 0.8;
+  padding: 14px 0;
+  transition: all 0.25s ease;
+  text-decoration: none;
+  text-transform: none;
+  color: white;
+}
+
+.navigation .links a:hover {
+  opacity: 1;
+  cursor: pointer;
+  text-decoration: none;
+  text-transform: none;
+  color: white;
+}
+
+.navigation .links .is-active {
+  opacity: 1;
+  font-weight: bold;
+  text-decoration: none;
+  text-transform: none;
+  color: white;
+}
+.navigation .download {
+  margin-left: auto;
+  height: 45px;
+  width: 410px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f2f2f2;
+  border-radius: 7px;
+  border: none;
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: 0.04em;
+  transition: all 0.1s ease;
+  text-decoration: none;
+  background: rgba(0,0,0,0.8);
+  color:rgba(255,255,255,0.5);
+}
+.navigation.shrink .download  {
+  display: none;
+}
+.dropbtn {
+  margin-top: 2px;
+  background-color: #000000;
+  color: white;
+  padding: 2px;
+  font-size: 16px;
+  border: none;
+}
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+.dropdown-content {
+  border-radius: 10px;
+  display: none;
+  position: absolute;
+  background-color: #000000;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  color: #f2f2f2;
+}
+.dropdown-content a:hover {
+  border-radius: 10px;
+  background-color: darkgray;
+  color: #f2f2f2;
+}
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+.dropdown:hover .dropbtn {
+  background-color: transparent;
+}
+#Name {
+  margin-left: 15px;
+  padding: 5px 0;
+  height: 30px;
+  width: 320px;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #f2f2f2;
+}
+#search {
+  padding: 5px 0;
+  background: transparent;
+  border: none;
+}
+#searchActor {
+  padding: 5px 0;
+  background: transparent;
+  border: none;
+}
+#searchImage {
+  width: 17px;
+  height: 17px;
+}
+.results {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 100px;
+  margin-right: 100px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background-color: black;
+  border-radius: 15px;
+  justify-content: center;
+}
+.genre {
+  display: block;
+  width: 380px;
+  height: 200px;
+  border-radius: 6px;
+  background-size: 400px;
+  background-image: url("scenes/action.jpg");
+  margin: 10px;
+}
+.clickable {
+  cursor: pointer;
+}
+.hidden {
+  position: absolute;
+  display: none;
+  flex-wrap: wrap;
+  margin-left: 120px;
+  margin-right: 120px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background-color: black;
+  border-radius: 12px;
+}
+.shadow {
+  text-shadow:
+                -1px -1px 0 #fff,
+                1px -1px 0 #fff, 
+                -1px 1px 0 #fff, 
+                1px 1px 0 #fff;
+}
+.singleMovie {
+  padding: 5px 5px;
+  position: relative;
+  display: inline-block;
+}
+.moviePoster {
+  display: block;
+  width: 380px;
+  height: 563px;
+  border-radius: 6px;
+  transition: 0.3s ease;
+}
+.moviePoster:hover {
+  filter: blur(4px);
+  transition: 0.3s ease;
+  opacity: 0.4;
+}
+.textOver {
+  user-select: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  display: none;
+  transition: opacity 0.3s ease;
+  color: white;
+  pointer-events: none;
+}
+.actorTextOver {
+  user-select: none;
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  display: block;
+  transition: opacity 0.3s ease;
+  color: white;
+  pointer-events: none;
+}
+.imageContainer:hover .textOver {
+  display: block;
+}
+.outerPoster {
+  border-radius: 6px;
+  margin: 5px;
+  color: white;
+}
+.image { 
+  position: relative;
+  flex: 1 1 auto;
+  margin: 5px; /* Adjust as needed */
+  width: 320px;
+  height: 474px;
+  border-radius: 6px;
+  display: inline-block;
+  pointer-events: none;
+}
+#rotate {
+  transform: rotate(180deg);
+}
+.popularityIndex {
+  height: 100%;
+  width: 100%;
+  background-color: blue;
+  border-top-left-radius: 100px;
+  border-top-right-radius: 100px;
+
+}
+.actorImage {
+  flex: 0 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 320px;
+  height: 474px;
+}
+.main {
+  text-align: center;
+  margin-top: 120px;
+}
+@font-face {
+font-family: "bignoodletoo";
+src: url("bignoodletoo.ttf");
+}
+@font-face {
+font-family: "Roboto";
+src: url("3966.ttf");
+}
+h1{
+font-family: 'bignoodletoo', Arial, sans-serif;
+font-weight:bold;
+font-style:normal;
+font-size: 40px;
+}
+h2{
+  font-family: 'bignoodletoo', Arial, sans-serif;
+  font-weight:bold;
+  font-style:normal;
+  font-size: 25px;
+}
+p{
+  font-family:'Roboto',Arial, sans-serif;
+  font-size: 17px;
+}
+ul{
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+a{
+  text-decoration: none;
+}

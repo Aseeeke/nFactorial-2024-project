@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <link rel="stylesheet" href="styles.css">
+ <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,700|Roboto:300,400,500,700" rel="stylesheet">
+ <meta charset="utf-8">
+ <title> Tilthood </title>
+ <script src="script.js"></script>
+ </head>
+<body>
+    <nav class="navigation">
+        <a href="#" class ="logo" id="logo"><img src="logaaan.png" id="logoImage"></a>
+        <div class="links">
+          <a class="scrollable" href="project.html">Home</a>
+          <a class="scrollable" href="genre.html">Genre</a>
+        </div>
+        <div class="download scrollable">
+          <div class="dropdown">
+          <button class="dropbtn"><img src="burger.svg"></button>
+          <div class="dropdown-content">
+            <a href="#" onclick="selectOption(this)" data-option="title">Title</a>
+            <a href="#" onclick="selectOption(this)" data-option="actor">Actor</a>
+            <a href="#" onclick="selectOption(this)" data-option="TV">TV show</a>
+          </div>
+        </div>
+        <input type="text" id="Name" name="Name" placeholder="Search" autocomplete="off" onkeydown="handleKeyPress(event)">
+        <button type="button" onclick="executeSearch()" id="search"><img src="lupa.png" id="searchImage"></button></div>
+      </nav>
+    <div class="main">
+      <br>
+      
+    <div class="results" style="background-color: #dedede;">
+      <div class="genre clickable" style="background-image: url('scenes/action.jpg');"><p class="hiddenGenre" style="display: none;">28</p><br><br><h1 class="shadow">Action</h1></div>
+      <div class="genre clickable" style="background-image: url('scenes/adventure.jpg');"><p class="hiddenGenre" style="display: none;">12</p><br><br><h1 class="shadow">Adventure</h1></div>
+      <div class="genre clickable" style="background-image: url('scenes/animation.jpg');"><p class="hiddenGenre" style="display: none;">16</p><br><br><h1 class="shadow">Animation</h1></div>
+      <div class="genre clickable" style="background-image: url('scenes/comedy.jpg');"><p class="hiddenGenre" style="display: none;">35</p><br><br><h1 class="shadow">Comedy</h1></div>
+      <div class="genre clickable" style="background-image: url('scenes/crime.jpg');"><p class="hiddenGenre" style="display: none;">80</p><br><br><h1 class="shadow">Crime</h1></div>
+      <div class="genre clickable" style="background-image: url('scenes/documentary.jpg');"><p class="hiddenGenre" style="display: none;">99</p><br><br><h1 class="shadow">Documentary</h1></div>
+      <div class="genre clickable" style="background-image: url('scenes/drama.jpg');"><p class="hiddenGenre" style="display: none;">18</p><br><br><h1 class="shadow">Drama</h1></div>
+      <div class="genre clickable" style="background-image: url('scenes/family.jpg');"><p class="hiddenGenre" style="display: none;">10751</p><br><br><h1 class="shadow">Family</h1></div>
+      <div class="genre clickable" style="background-image: url('scenes/fantasy.jpg');"><p class="hiddenGenre" style="display: none;">14</p><br><br><h1 class="shadow">Fantasy</h1></div>
+      <div class="genre clickable" style="background-image: url('scenes/history.jpg');"><p class="hiddenGenre" style="display: none;">36</p><br><br><h1 class="shadow">History</h1></div>
+      <div class="genre clickable" style="background-image: url('scenes/horror.jpg');"><p class="hiddenGenre" style="display: none;">27</p><br><br><h1 class="shadow">Horror</h1></div>
+      <div class="hidden"></div>
+    </div>
+  </div>
+  <script>
+    const genreDivs = document.querySelectorAll('.genre');
+    const hiddenDiv = document.querySelector('.hidden');
+
+    genreDivs.forEach(genreDiv => {
+      genreDiv.addEventListener('click', function() {
+        hiddenDiv.style.display = 'block';
+        const genreName = this.querySelector('p').innerText;
+        discover(genreName);
+      });
+    });
+    hiddenDiv.addEventListener('click', function(event) {
+      if (event.target.id === 'removeClick') {
+        hiddenDiv.innerHTML = '';
+        hiddenDiv.style.display = 'none';
+      }
+    });
+  </script>
+  <br><br><br><br><br><br><br><br>
+</body>
+</html>
